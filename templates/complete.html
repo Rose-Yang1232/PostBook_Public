@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Thank You</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script>
+        var prefix = "{{ prefix }}"; // Make sure you pass 'prefix' from your Flask view
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='log_events.js') }}"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Thank you for participating in our study.</h2>
+        <p>Please fill in the survey!
+        <br>reminder: please fill in the survey to get the full compensation.
+        <br> 
+        </p>
+            <a href="https://redcap.vanderbilt.edu/surveys/?s=KLTWE8MEFP8A4ALL" class="button">Go to the Survey</a>
+        </div>
+    </div>
+</body>
+</html>
+

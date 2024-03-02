@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+        function redirectToRandomTask() {
+            // Replace 'home' with the route name you want to navigate to
+            var url = "/{{prefix + url_for('home') }}";
+            // var url = "{{url_for('home') }}";
+
+            var newWindow = window.open(url, "_blank"); // Open the URL in a new tab/window
+            if (newWindow) {
+                newWindow.focus(); // Focus on the new tab/window if it was opened successfully
+            } else {
+                alert("Popup blocked! Please allow popups and click the button again.");
+            }
+        }
+    </script>
+    <script>
+        var prefix = "{{ prefix }}"; // Make sure you pass 'prefix' from your Flask view
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='log_events.js') }}"></script>
+</head>
+<body>
+    <p>Click the button to go to the web application</p>
+    <br>
+    <br>
+    <button onclick="redirectToRandomTask()">Click Here to Access Web Applicatioin</button>
+    <br>
+    <br>
+    <p>Click the button to go back to the checking page!</p>
+    <a href="/{{prefix +  url_for('game') }}">Go to check your flag</a>
+    <!-- <a href="{{url_for('game') }}">Go to check your flag</a> -->
+</body>
+</html>

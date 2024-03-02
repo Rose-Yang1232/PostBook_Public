@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  Please write down your reflections!
+</head>
+<body>
+  <!-- Navigation bar here -->
+
+  <div class="journal-tab">
+    <h1>Journal</h1>
+    <form method="post">
+      <textarea name="content" placeholder="Write your journal entry here..." required></textarea>
+      <button type="submit">Save</button>
+    </form>
+
+    <div class="previous-entries">
+      <!-- Loop through journal entries and display them -->
+      {% for entry in journal_entries %}
+        <div class="journal-entry">
+          <p>{{ entry.content }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</body>
+</html>
+
+

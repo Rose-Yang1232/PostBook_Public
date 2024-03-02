@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Post</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+        var prefix = "{{ prefix }}"; // Make sure you pass 'prefix' from your Flask view
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='log_events.js') }}"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Edit Post</h1>
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            {{ form.content.label }}
+            {{ form.content }}
+            <br>
+            <button type="submit">Save</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+        var prefix = "{{ prefix }}"; // Make sure you pass 'prefix' from your Flask view
+    </script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- <script src="{{url_for('static', filename='log_events.js') }}"></script> -->
+    <script src="{{prefix + url_for('static', filename='log_events.js') }}"></script>
+
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome</h1>
+        <br>
+        <br>
+        <p> On the next page, there is a link to a web application. 
+            There may be some vulnerabilities in that web application, please find as many vulnerabilities as you can. 
+            When you correctly find a vulnerability, you will discover a flag (a line of characters like this:Flag{H4ck_Is_Fu78n} ). Please come back to the checking page to verify your flag. 
+            You will receive a $2 bonus for each flag you find. 
+        </p>
+        <br>
+        <p>
+            You can click "Complete" to quit the experiment whenever you want. 
+        </p>
+        <br>
+        <p>
+            We would appreciate if you could finish this in one setting.
+            We would appreciate if you can record your thoughts and your approach in the journal as you go through the task.
+            But please note that not completing the study will only guarantee a payment of 10 dollars.
+        </p>    
+        <br>
+        <a href="/{{prefix + url_for('game') }}">Start</a>
+        <!-- <a href="{{url_for('game') }}">Start</a> -->
+      
+        <a href="/{{prefix + url_for('journal') }}" target="_blank">Journal</a>
+        <!-- <a href="{{url_for('journal') }}" target="_blank">Journal</a> -->
+        
+    </div>
+</body>
+</html>

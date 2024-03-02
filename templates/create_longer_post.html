@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create a longer Post</title>
+</head>
+<body>
+    <h1>Create a longer post!</h1>
+    <script>
+        var prefix = "{{ prefix }}"; // Make sure you pass 'prefix' from your Flask view
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='log_events.js') }}"></script>
+
+    <form method="POST" action="/{{prefix + url_for('create_longer_post') }}">
+        <input type="text" name="content" placeholder="Enter your post" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        window.onload = function() {
+            const form = document.querySelector('form');
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                const content = document.querySelector('input[name="content"]').value;
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', '/{{prefix + url_for("create_longer_post") }}', true);
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhr.onload = function() {
+                    if (xhr.status === 200) {
+                        const response = JSON.parse(xhr.responseText);
+                        if (response.is_xss) {
+                            alert(response.message);
+                            alert(response.flag);
+                        } else {
+                            // Create a post for normal input
+                            window.location.href = '/{{prefix + url_for("dashboard") }}';
+                        }
+                    }
+                };
+                xhr.send('content=' + encodeURIComponent(content));
+                form.reset();
+            });
+        };
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,443 @@
+version: '3.7'
+
+services:
+  nginx:
+    build: ./nginx/
+    ports: 
+      - "58901:58901"
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./static:/static
+    networks:
+      - my_network
+
+    depends_on:
+      - app1
+      - app2
+      - app3
+      - app4
+      - app5
+      - app6
+      - app7
+      - app8
+      - app9
+      - app10
+      - app11
+      - app12
+      - app13
+      - app14
+      - app15
+      - app16
+      - app17
+      - app18
+      - app19
+      - app20
+      - app21
+      - app22
+      - app23
+      - app24
+      - app25
+      - app26
+      - app27
+      - app28
+      - app29
+      - app30
+
+  app1:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # ports:
+    #   - "8000:8000"
+    environment:
+      - DATABASE_FILE_PATH=sqlite:////app/shared-db/app1_db.db
+      # - FLASK_APPLICATION_ROOT=/03691bd27d7c9cf68029be2d45f9bbd2890e969fd68dc38a96dfbb152eb6f179
+    volumes:
+      - ./shared-db/app1_db.db:/app/shared-db/app1_db.db
+    networks:
+      - my_network
+
+  app2:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # ports:
+    #   - "8001:8000"
+    environment:
+      - DATABASE_FILE_PATH=sqlite:////app/shared-db/app2_db.db
+      # - FLASK_APPLICATION_ROOT=/fadabe5c4df81d347fccf1e23247221a5dbc56013520c9c97d0b2f8c75b2b1e9
+    volumes:
+      - ./shared-db/app2_db.db:/app/shared-db/app2_db.db
+    networks:
+      - my_network
+
+  app3:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # ports:
+    #   - "8002:8000"
+    environment:
+      - DATABASE_FILE_PATH=sqlite:////app/shared-db/app3_db.db
+      # - FLASK_APPLICATION_ROOT=/f8f13de749328a1d6554cd1e1b4fcb4131acaaef43ef89435e222804dc8afd70
+    volumes:
+      - ./shared-db/app3_db.db:/app/shared-db/app3_db.db
+    networks:
+      - my_network
+  
+  app4:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # ports:
+    #   - "8002:8000"
+    environment:
+      - DATABASE_FILE_PATH=sqlite:////app/shared-db/app4_db.db
+      # - FLASK_APPLICATION_ROOT=/d21fe985fedad2019674bc5354282a6adaef5b862b76b545fb78c786aa3cc35e
+    volumes:
+      - ./shared-db/app4_db.db:/app/shared-db/app4_db.db
+    networks:
+      - my_network
+
+  app5:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # ports:
+    #   - "8002:8000"
+    environment:
+      - DATABASE_FILE_PATH=sqlite:////app/shared-db/app5_db.db
+      # - FLASK_APPLICATION_ROOT=/44d11ec3bcaa55671b1e8cab3450b1b1d3cd6651a679ec324fd1d3f27740b7f1
+    volumes:
+      - ./shared-db/app5_db.db:/app/shared-db/app5_db.db
+    networks:
+      - my_network
+
+  app6:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # ports:
+    #   - "8002:8000"
+    environment:
+      - DATABASE_FILE_PATH=sqlite:////app/shared-db/app6_db.db
+    volumes:
+      - ./shared-db/app6_db.db:/app/shared-db/app6_db.db
+    networks:
+      - my_network
+
+  app7:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # ports:
+    #   - "8002:8000"
+    environment:
+      - DATABASE_FILE_PATH=sqlite:////app/shared-db/app7_db.db
+    volumes:
+      - ./shared-db/app7_db.db:/app/shared-db/app7_db.db
+    networks:
+      - my_network
+
+  app8:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # ports:
+    #   - "8002:8000"
+    environment:
+      - DATABASE_FILE_PATH=sqlite:////app/shared-db/app8_db.db
+    volumes:
+      - ./shared-db/app8_db.db:/app/shared-db/app8_db.db
+    networks:
+      - my_network
+  
+  app9:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # ports:
+    #   - "8002:8000"
+    environment:
+      - DATABASE_FILE_PATH=sqlite:////app/shared-db/app9_db.db
+    volumes:
+      - ./shared-db/app9_db.db:/app/shared-db/app9_db.db
+    networks:
+      - my_network
+  
+  app10:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # ports:
+    #   - "8002:8000"
+    environment:
+      - DATABASE_FILE_PATH=sqlite:////app/shared-db/app10_db.db
+    volumes:
+      - ./shared-db/app10_db.db:/app/shared-db/app10_db.db
+    networks:
+      - my_network
+
+  app11:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # ports:
+    #   - "8002:8000"
+    environment:
+      - DATABASE_FILE_PATH=sqlite:////app/shared-db/app11_db.db
+    volumes:
+      - ./shared-db/app11_db.db:/app/shared-db/app11_db.db
+    networks:
+      - my_network
+
+  app12:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # ports:
+    #   - "8002:8000"
+    environment:
+      - DATABASE_FILE_PATH=sqlite:////app/shared-db/app12_db.db
+    volumes:
+      - ./shared-db/app12_db.db:/app/shared-db/app12_db.db
+    networks:
+      - my_network
+
+  app13:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # ports:
+    #   - "8002:8000"
+    environment:
+      - DATABASE_FILE_PATH=sqlite:////app/shared-db/app13_db.db
+    volumes:
+      - ./shared-db/app13_db.db:/app/shared-db/app13_db.db
+    networks:
+      - my_network
+
+  app14:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # ports:
+    #   - "8002:8000"
+    environment:
+      - DATABASE_FILE_PATH=sqlite:////app/shared-db/app14_db.db
+    volumes:
+      - ./shared-db/app14_db.db:/app/shared-db/app14_db.db
+    networks:
+      - my_network
+
+  app15:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # ports:
+    #   - "8002:8000"
+    environment:
+      - DATABASE_FILE_PATH=sqlite:////app/shared-db/app15_db.db
+    volumes:
+      - ./shared-db/app15_db.db:/app/shared-db/app15_db.db
+    networks:
+      - my_network
+
+  app16:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # ports:
+    #   - "8002:8000"
+    environment:
+      - DATABASE_FILE_PATH=sqlite:////app/shared-db/app16_db.db
+    volumes:
+      - ./shared-db/app16_db.db:/app/shared-db/app16_db.db
+    networks:
+      - my_network
+
+  app17:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # ports:
+    #   - "8002:8000"
+    environment:
+      - DATABASE_FILE_PATH=sqlite:////app/shared-db/app17_db.db
+    volumes:
+      - ./shared-db/app17_db.db:/app/shared-db/app17_db.db
+    networks:
+      - my_network
+
+  app18:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # ports:
+    #   - "8002:8000"
+    environment:
+      - DATABASE_FILE_PATH=sqlite:////app/shared-db/app18_db.db
+    volumes:
+      - ./shared-db/app18_db.db:/app/shared-db/app18_db.db
+    networks:
+      - my_network
+
+  app19:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # ports:
+    #   - "8002:8000"
+    environment:
+      - DATABASE_FILE_PATH=sqlite:////app/shared-db/app19_db.db
+    volumes:
+      - ./shared-db/app19_db.db:/app/shared-db/app19_db.db
+    networks:
+      - my_network
+
+  app20:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # ports:
+    #   - "8002:8000"
+    environment:
+      - DATABASE_FILE_PATH=sqlite:////app/shared-db/app20_db.db
+    volumes:
+      - ./shared-db/app20_db.db:/app/shared-db/app20_db.db
+    networks:
+      - my_network
+
+  app21:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # ports:
+    #   - "8002:8000"
+    environment:
+      - DATABASE_FILE_PATH=sqlite:////app/shared-db/app21_db.db
+    volumes:
+      - ./shared-db/app21_db.db:/app/shared-db/app21_db.db
+    networks:
+      - my_network
+  
+  app22:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # ports:
+    #   - "8002:8000"
+    environment:
+      - DATABASE_FILE_PATH=sqlite:////app/shared-db/app22_db.db
+    volumes:
+      - ./shared-db/app22_db.db:/app/shared-db/app22_db.db
+    networks:
+      - my_network
+  
+  app23:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # ports:
+    #   - "8002:8000"
+    environment:
+      - DATABASE_FILE_PATH=sqlite:////app/shared-db/app23_db.db
+    volumes:
+      - ./shared-db/app23_db.db:/app/shared-db/app23_db.db
+    networks:
+      - my_network
+
+  app24:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # ports:
+    #   - "8002:8000"
+    environment:
+      - DATABASE_FILE_PATH=sqlite:////app/shared-db/app24_db.db
+    volumes:
+      - ./shared-db/app24_db.db:/app/shared-db/app24_db.db
+    networks:
+      - my_network
+
+  app25:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # ports:
+    #   - "8002:8000"
+    environment:
+      - DATABASE_FILE_PATH=sqlite:////app/shared-db/app25_db.db
+    volumes:
+      - ./shared-db/app25_db.db:/app/shared-db/app25_db.db
+    networks:
+      - my_network
+
+  app26:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # ports:
+    #   - "8002:8000"
+    environment:
+      - DATABASE_FILE_PATH=sqlite:////app/shared-db/app26_db.db
+    volumes:
+      - ./shared-db/app26_db.db:/app/shared-db/app26_db.db
+    networks:
+      - my_network
+
+  app27:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # ports:
+    #   - "8002:8000"
+    environment:
+      - DATABASE_FILE_PATH=sqlite:////app/shared-db/app27_db.db
+    volumes:
+      - ./shared-db/app27_db.db:/app/shared-db/app27_db.db
+    networks:
+      - my_network
+
+  app28:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # ports:
+    #   - "8002:8000"
+    environment:
+      - DATABASE_FILE_PATH=sqlite:////app/shared-db/app28_db.db
+    volumes:
+      - ./shared-db/app28_db.db:/app/shared-db/app28_db.db
+    networks:
+      - my_network
+  
+  app29:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # ports:
+    #   - "8002:8000"
+    environment:
+      - DATABASE_FILE_PATH=sqlite:////app/shared-db/app29_db.db
+    volumes:
+      - ./shared-db/app29_db.db:/app/shared-db/app29_db.db
+    networks:
+      - my_network
+
+  app30:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # ports:
+    #   - "8002:8000"
+    environment:
+      - DATABASE_FILE_PATH=sqlite:////app/shared-db/app30_db.db
+    volumes:
+      - ./shared-db/app30_db.db:/app/shared-db/app30_db.db
+    networks:
+      - my_network
+
+networks:
+  my_network:
+    driver: bridge

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+        var prefix = "{{ prefix }}"; // Make sure you pass 'prefix' from your Flask view
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='log_events.js') }}"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Capture the Flag Game</h1>
+        <br>
+        <h2>Enter Flag</h2>
+        <form action="/{{prefix + url_for('game') }}" method="POST">
+        <!-- <form action="/{{url_for('game') }}" method="POST"></form> -->
+            <input type="text" name="flag" required>
+            <button type="submit">Submit</button>
+        </form>
+          
+        <!-- Display flash messages -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for message in messages %}
+                        <div class="flash-message">{{ message }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+          
+        <br>
+        <p>Number of Correct Flags: {{ web_user.correct_flags_count}}</p>
+        <br>
+        <!-- Adjusting the link based on the nginx presence -->
+        <a href="/{{prefix + url_for('task') }}">Go to the web application</a>
+        <!-- <a href="{{url_for('task') }}">Go to the web application</a> -->
+        <br>
+        <br>
+        <br>
+        <a href="/{{prefix + url_for('journal') }}" target="_blank">Journal</a>
+        <!-- <a href="{{url_for('journal') }}" target="_blank">Journal</a> -->
+        <a href="/{{prefix + url_for('complete') }}">Complete</a>
+        <!-- <a href="{{ url_for('complete') }}">Complete</a> -->
+    </div>
+</body>
+</html>
+

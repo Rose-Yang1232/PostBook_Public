@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+        var prefix = "{{ prefix }}"; // Make sure you pass 'prefix' from your Flask view
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='log_events.js') }}"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to your Dashboard, {{ current_user.username }}!</h1>
+
+        <h2>Create a New Post</h2>
+        <form method="POST" action="/{{prefix + url_for('dashboard') }}">
+            {{ form.hidden_tag() }}
+            {{ form.content }}
+            {{ form.submit }}
+        </form>
+
+        <hr>
+
+        <!-- Display the user's posts -->
+        <h2>Posts</h2>
+        {% for post in posts %}
+            {% if not post.private or current_user.id == post.author.id %}
+                <div class="post">
+                    <p>{{ post.content }}</p>
+                    <small>Posted by: {{ post.author.username }}</small>
+                    {% if current_user.id != post.author.id %}
+                        <a href="/{{prefix + url_for('profile', user_id=post.author.id) }}">View Profile</a>
+                    {% endif %}
+                    {% if current_user.id == post.author.id %}
+                        <form method="POST" action="/{{prefix + url_for('edit_post', post_id=post.id) }}">
+                            <button type="submit">Edit</button>
+                        </form>
+                        <form method="POST" action="/{{prefix + url_for('delete_post', post_id=post.id) }}">
+                            <button type="submit">Delete</button>
+                        </form>
+                        <form method="POST" action="/{{prefix + url_for('toggle_privacy', post_id=post.id) }}">
+                            {% if post.private %}
+                                <button type="submit">Make Public</button>
+                            {% else %}
+                                <button type="submit">Make Private</button>
+                            {% endif %}
+                        </form>
+                    {% endif %}
+                </div>
+            {% endif %}
+        {% endfor %}
+
+        <!-- Add a link for the current user to view and edit their profile -->
+        <a href="/{{prefix + url_for('create_longer_post') }}">Create a longer post</a>
+
+        <a href="/{{prefix + url_for('profile', user_id=current_user.id) }}">My Profile</a>
+        <a href="/{{prefix + url_for('admin_handbook') }}">Admin Handbook</a>
+
+        <a href="/{{prefix + url_for('logout') }}">Logout</a>
+    </div>
+</body>
+</html>
