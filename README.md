@@ -1,10 +1,11 @@
 # SoS_PostBook
-this is a PostBook with flags 
+
+this is a PostBook with flags in CTF style
 
 To create and run the virtual envionment
-pip3 install virtualenv 
-virtualenv env 
-source env/bin/activate 
+pip3 install virtualenv
+virtualenv env
+source env/bin/activate
 pip3 install flask flask-sqlalchemy
 
 python3
@@ -13,11 +14,11 @@ from app import db
 Command line to test locally (without docker)
 python3 app.py
 
-command line for docker: 
+command line for docker:
 docker-compose build
 docker-compose up
 
-Now this web could only be accessed when deployed 
+Now this web could only be accessed when deployed
 
 Original ID: user1 -> Hashed ID: 03691bd27d7c9cf68029be2d45f9bbd2890e969fd68dc38a96dfbb152eb6f179 with Salt: 62f0a14f9745c9965a5777966fd46a92
 Original ID: user2 -> Hashed ID: fadabe5c4df81d347fccf1e23247221a5dbc56013520c9c97d0b2f8c75b2b1e9 with Salt: 1c075ce7921a00b4fef629554336d02d
